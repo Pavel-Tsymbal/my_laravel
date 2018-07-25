@@ -15,7 +15,26 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['middleware' => 'guest'], function () {
+    Route::get('/register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+    Route::post('/register', 'Auth\RegisterController@register');
+
+    Route::get('/login','Auth\LoginController@showLoginForm')->name('login');
+    Route::post('/login','Auth\LoginController@login');
+
+    Route::get('/password.request','Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
+    Route::get('/password.email', function (){
+        return view('auth.password.email');
+    })->name('password.email');
+    Route::post('/password.email','Auth\ResetPasswordController@reset');
+});
+
+Route::group(['middleware' => 'auth'], function (){
+    Route::get('/home', function () {
+        return view('home');
+    });
+    Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
+});
 
