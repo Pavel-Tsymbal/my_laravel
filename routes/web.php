@@ -13,8 +13,15 @@
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['middleware' => 'auth'],function (){
+    Route::group(['middleware' => 'admin'],function (){
+        Route::get('/admin', 'Admin\AccountController@index')->name('admin');
+    });
+});
+
