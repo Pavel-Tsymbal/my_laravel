@@ -20,8 +20,16 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => 'auth'],function (){
-    Route::group(['middleware' => 'admin'],function (){
-        Route::get('/admin', 'Admin\AccountController@index')->name('admin');
+    Route::group(['middleware' => 'admin','prefix' => 'admin'],function (){
+        Route::get('/', 'Admin\AccountController@index')->name('admin');
+
+        Route::get('/categories','Admin\CategoriesController@categories')->name('categories');
+        Route::get('/categories/add', 'Admin\CategoriesController@addCategory')->name('categories.add');
+        Route::post('/categories/add', 'Admin\CategoriesController@addRequestCategory');
+        Route::get('/categories/edit/{id}', 'Admin\CategoriesController@editCategory')
+            ->where('id','\d+')
+            ->name('categories.edit');
+        Route::delete('/categories/delete', 'Admin\CategoriesController@deleteCategory')->name('categories.delete');
     });
 });
 
