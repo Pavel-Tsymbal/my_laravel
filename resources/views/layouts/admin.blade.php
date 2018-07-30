@@ -39,10 +39,12 @@
                 <a class="nav-link" href="#">Help</a>
             </li>
         </ul>
+        <!--
         <form class="form-inline mt-2 mt-md-0">
             <input class="form-control mr-sm-2" type="text" placeholder="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
+        -->
     </div>
 </nav>
 
@@ -51,10 +53,10 @@
         <nav class="col-sm-3 col-md-2 hidden-xs-down bg-faded sidebar">
             <ul class="nav nav-pills flex-column">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('categories.add')}}">Категории</a>
+                    <a class="nav-link" href="{{route('categories')}}">Категории</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Статьи</a>
+                    <a class="nav-link" href="{{route('articles')}}">Статьи</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Пользователи</a>
