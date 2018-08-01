@@ -11,14 +11,18 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
+Route::get('/', 'ArticlesController@index')->name('index');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+/*Blog*/
+Route::get('article/{id}/{slug}.html','ArticlesController@showArticle')
+    ->where('id','\d+')
+    ->name('blog.article');
+
+/* Admin*/
 Route::group(['middleware' => 'auth'],function (){
     Route::group(['middleware' => 'admin','prefix' => 'admin'],function (){
         Route::get('/', 'Admin\AccountController@index')->name('admin');

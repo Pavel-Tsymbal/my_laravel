@@ -5,6 +5,12 @@
         <br>
         <form method="post">
             {!! csrf_field() !!}
+            <p>Выбор категорий: <br> <select name="categories[]" class="form-control" multiple>
+                    @foreach($categories as $category)
+                        <option value="{{$category->id}}" @if (in_array($category->id,$idCategories)) selected @endif>{{$category->title}}</option>
+                    @endforeach
+
+                </select></p>
             <p>Название статьи: <br><input type="text" name="title" class="form-control" value="{{ $article->title }}" required> </p>
             <p>Автор статьи: <br><input type="text" name="author" class="form-control" value="{{ $article->author }}" required> </p>
             <p>Описание статьи: <br><textarea name="short_text" class="form-control" required>{!! $article->short_text !!}</textarea></p>

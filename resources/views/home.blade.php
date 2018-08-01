@@ -6,10 +6,6 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">Dashboard</div>
-                @if(\Auth::user()->isAdmin == 1)
-                    <a href="{{route('admin')}}">Админ панель</a><br>
-                @endif
-
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
