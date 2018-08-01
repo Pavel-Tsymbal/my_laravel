@@ -59,7 +59,7 @@
                     <a class="nav-link" href="{{route('articles')}}">Статьи</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Пользователи</a>
+                    <a class="nav-link" href="{{route('users')}}">Пользователи</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Комментарии</a>

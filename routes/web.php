@@ -52,6 +52,9 @@ Route::group(['middleware' => 'auth'],function (){
         Route::get('/articles/delete/{id}', 'Admin\ArticlesController@deleteArticle')
             ->where('id','\d+')
             ->name('articles.delete');
+
+        /* Users */
+        Route::get('/users', 'Admin\UserController@index')->name('users');
     });
 });
 
