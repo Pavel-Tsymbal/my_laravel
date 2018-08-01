@@ -25,7 +25,6 @@ class ArticlesController extends Controller
 
     public function addRequestArticle(Request $request)
     {
-//        dd($request);
         $objArticle = new Article();
         $objCategoryArticle = new CategoryArticle();
 

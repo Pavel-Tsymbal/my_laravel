@@ -10,6 +10,7 @@
                 <td><b>Name</b></td>
                 <td><b>Email</b></td>
                 <td><b>Роль</b></td>
+                <td><b>Состояние</b></td>
                 <td><b>Дата регистрации</b></td>
                 <td><b>Действия</b></td>
             </tr>
@@ -20,10 +21,13 @@
                     <td>{{$user->name}}</td>
                     <td>{!! $user->email !!}</td>
                     <td> @if ($user->isAdmin) Администратор @else Пользователь @endif </td>
+                    <td> @if ($user->isBanned) <b>Заблокирован</b> @else Свободен @endif </td>
                     <td>{{$user->created_at->format('d.m.Y H:i')}}</td>
                     <td>
-                        @if (!$user->isAdmin)
-                         <a href="#" onclick="return window.confirm('Вы уверены что хотите заблокировать этого пользователя?')">Заблокировать</a> ||
+                        @if (!$user->isAdmin && !$user->isBanned)
+                         <a href="{{route('user.ban',['id'=>$user->id])}}" onclick="return window.confirm('Вы уверены что хотите заблокировать пользователя  {{$user->name}} ?')">Заблокировать</a> ||
+                        @elseif (!$user->isAdmin && $user->isBanned)
+                            <a href="{{route('user.unban',['id'=>$user->id])}}" onclick="return window.confirm('Вы уверены что хотите разблокировать пользователя {{$user->name}} ?')">Разблокировать</a> ||
                         @endif
 
                         <a href="#">Перейти в профиль</a>

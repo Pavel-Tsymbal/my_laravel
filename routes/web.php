@@ -55,6 +55,11 @@ Route::group(['middleware' => 'auth'],function (){
 
         /* Users */
         Route::get('/users', 'Admin\UserController@index')->name('users');
+        Route::get('/users/ban/{id}', 'Admin\UserController@banUser')->name('user.ban');
+        Route::get('/users/unban/{id}', 'Admin\UserController@unBanUser')->name('user.unban');
     });
+
+    Route::get('/profile', 'UserController@profile')->name('profile');
+    Route::post('/profile', 'userController@update_avatar')->name('profile.updateAvatar');
 });
 
