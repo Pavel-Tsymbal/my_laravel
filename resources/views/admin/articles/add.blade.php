@@ -13,6 +13,7 @@
                 </select></p>
             <p>Введите название статьи: <br><input type="text" name="title" class="form-control" required></p>
             <p>Автор статьи: <br><input type="text" name="author" class="form-control" required></p>
+            <p>Автор e-mail: <br><input type="text" name="author_email" class="form-control" required></p>
             <p>Описание статьи:<br><textarea name="short_text" class="form-control" required></textarea></p>
             <p>Текст статьи:<br><textarea name="full_text" class="form-control" required></textarea></p>
             <br>

@@ -59,7 +59,9 @@ Route::group(['middleware' => 'auth'],function (){
         Route::get('/users/unban/{id}', 'Admin\UserController@unBanUser')->name('user.unban');
     });
 
+    /* User*/
     Route::get('/profile', 'UserController@profile')->name('profile');
     Route::post('/profile', 'userController@update_avatar')->name('profile.updateAvatar');
+    Route::get('/user/{email}/profile', 'UserController@showUserProfile')->name('profile.show');
 });
 

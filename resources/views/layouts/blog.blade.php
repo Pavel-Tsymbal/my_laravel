@@ -40,21 +40,48 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
 
-                <li class="nav-item">
-                    <a class="nav-link" href="{{route('home')}}">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="contact.html">Contact</a>
-                </li>
-
-                @if(!Auth::user())
-                    <li class="nav-item">
+                @guest
+                    <li class="nav-item" style="margin-top: 5px;">
                         <a class="nav-link" href="{{route('login')}}">login</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" style="margin-top: 5px;">
                         <a class="nav-link" href="{{route('register')}}">Register</a>
                     </li>
-                @endif
+
+                @else
+                    <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <img src="/uploads/avatars/{{Auth::user()->avatar}}" style="width: 32px; height: 32px; border-radius: 50%;">
+                            {{ Auth::user()->name }} <span class="caret"></span>
+                        </a>
+
+
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{route('profile')}}"><i class="fa fa-btn fa-user"></i>
+                                Profile
+                            </a>
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();"><i class="fa fa-btn fa-sign-out"></i>
+                                Logout
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                  style="display: none;">
+                                @csrf
+                            </form>
+                        </div>
+
+                        {{--<ul class="dropdown-menu dropdown-menu-right" role="menu">--}}
+                        {{--<li><a href="{{route('logout')}}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>--}}
+                        {{--</ul>--}}
+                    </li>
+
+                @endguest
+                <li class="nav-item" style="margin-top: 5px;">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
 
             </ul>
         </div>

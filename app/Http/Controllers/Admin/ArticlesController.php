@@ -31,6 +31,7 @@ class ArticlesController extends Controller
         $objArticle = $objArticle->create([
             'title' => $request->input('title'),
             'author' => $request->input('author'),
+            'author_email' => $request->input('author_email'),
             'short_text' => $request->input('short_text'),
             'full_text' => $request->input('full_text')
         ]);
@@ -53,8 +54,6 @@ class ArticlesController extends Controller
     public function editArticle(int $id)
     {
         $article = Article::find($id);
-
-
         $categories = Category::get();
 
         if (!$article) {
@@ -84,6 +83,7 @@ class ArticlesController extends Controller
 
         $objArticle->title = $request->input('title');
         $objArticle->author = $request->input('author');
+        $objArticle->author_email = $request->input('author_email');
         $objArticle->short_text = $request->input('short_text');
         $objArticle->full_text = $request->input('full_text');
 

@@ -12,6 +12,7 @@
                 <td><b>Описание</b></td>
                 <td><b>Текст статьи</b></td>
                 <td><b>Автор</b></td>
+                <td><b>Автор e-mail</b></td>
                 <td><b>Дата написания</b></td>
                 <td><b>Действия</b></td>
             </tr>
@@ -23,6 +24,7 @@
                     <td>{{ $article->short_text }}</td>
                     <td>{!! $article->full_text !!}</td>
                     <td>{{ $article->author }}</td>
+                    <td>{{ $article->author_email }}</td>
                     <td>{{$article->created_at->format('d.m.Y h:m')}}</td>
                     <td><a href="{{route('articles.edit',['id'=>$article->id])}}">Изменить</a> ||
                         <a href="{{route('articles.delete',['id'=>$article->id])}}"

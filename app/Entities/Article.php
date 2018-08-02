@@ -10,11 +10,16 @@ class Article extends Model
     protected $primaryKey = "id";
 
     protected $fillable = [
-        'title','short_text','full_text','author'
+        'title',
+        'short_text',
+        'full_text',
+        'author',
+        'author_email'
     ];
 
     protected $dates = [
-        'created_at', 'updated_at'
+        'created_at',
+        'updated_at'
     ];
 
     public function categories(){

@@ -13,6 +13,7 @@
                 </select></p>
             <p>Название статьи: <br><input type="text" name="title" class="form-control" value="{{ $article->title }}" required> </p>
             <p>Автор статьи: <br><input type="text" name="author" class="form-control" value="{{ $article->author }}" required> </p>
+            <p>Автор e-mail: <br><input type="text" name="author_email" class="form-control" value="{{ $article->author_email }}" required> </p>
             <p>Описание статьи: <br><textarea name="short_text" class="form-control" required>{!! $article->short_text !!}</textarea></p>
             <p>Текст статьи: <br><textarea name="full_text" class="form-control" required>{!! $article->full_text !!}</textarea></p>
             <br><button type="submit" class="btn btn-success" style="float: right; cursor: pointer">Сохранить изменения</button>

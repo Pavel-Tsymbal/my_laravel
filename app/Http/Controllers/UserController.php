@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Entities\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Intervention\Image\Facades\Image;
@@ -28,5 +29,13 @@ class UserController extends Controller
         }
 
         return view('profile',['user'=> Auth::user()]);
+    }
+
+    public function showUserProfile(string $email){
+        $user = User::where('email',$email)->first();
+        if(!$user){
+            return back()->with('error','Пользователь не найден!');
+        }
+        return view('users.profile',['user'=>$user]);
     }
 }

@@ -26,18 +26,18 @@
 
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="{{route('admin')}}">Главная<span class="sr-only">(current)</span></a>
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('admin')}}">Главная</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Settings</a>
+                <a class="nav-link" href="{{route('index')}}">Blog</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Profile</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Help</a>
-            </li>
+            {{--<li class="nav-item">--}}
+                {{--<a class="nav-link" href="#">Profile</a>--}}
+            {{--</li>--}}
+            {{--<li class="nav-item">--}}
+                {{--<a class="nav-link" href="#">Help</a>--}}
+            {{--</li>--}}
         </ul>
         <!--
         <form class="form-inline mt-2 mt-md-0">
@@ -66,20 +66,20 @@
                 </li>
             </ul>
 
-            <ul class="nav nav-pills flex-column">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Nav item</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Nav item again</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">One more nav</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Another nav item</a>
-                </li>
-            </ul>
+            {{--<ul class="nav nav-pills flex-column">--}}
+                {{--<li class="nav-item">--}}
+                    {{--<a class="nav-link" href="#">Nav item</a>--}}
+                {{--</li>--}}
+                {{--<li class="nav-item">--}}
+                    {{--<a class="nav-link" href="#">Nav item again</a>--}}
+                {{--</li>--}}
+                {{--<li class="nav-item">--}}
+                    {{--<a class="nav-link" href="#">One more nav</a>--}}
+                {{--</li>--}}
+                {{--<li class="nav-item">--}}
+                    {{--<a class="nav-link" href="#">Another nav item</a>--}}
+                {{--</li>--}}
+            {{--</ul>--}}
 
         </nav>
 

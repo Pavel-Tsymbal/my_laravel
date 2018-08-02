@@ -50,11 +50,11 @@
                             <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                         </li>
                     @else
-                        <li class="nav-item">
+                        <li class="nav-item" style="margin-top: 5px">
                             <a class="nav-link" href="{{ route('index') }}">На главную</a>
                         </li>
-                        @if (Auth::user()->isAdmin == 1)
-                            <li class="nav-item">
+                        @if (Auth::user()->isAdmin)
+                            <li class="nav-item" style="margin-top: 5px">
                                 <a class="nav-link" href="{{ route('admin') }}">В админ панель</a>
                             </li>
                         @endif
@@ -62,7 +62,8 @@
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                <img src="/uploads/avatars/{{Auth::user()->avatar}}" style="width: 32px; height: 32px; border-radius: 50%;">
+                                <img src="/uploads/avatars/{{Auth::user()->avatar}}"
+                                     style="width: 32px; height: 32px; border-radius: 50%;">
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 
@@ -84,7 +85,7 @@
                             </div>
 
                             {{--<ul class="dropdown-menu dropdown-menu-right" role="menu">--}}
-                                {{--<li><a href="{{route('logout')}}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>--}}
+                            {{--<li><a href="{{route('logout')}}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>--}}
                             {{--</ul>--}}
                         </li>
                     @endguest

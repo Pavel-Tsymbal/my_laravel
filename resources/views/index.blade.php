@@ -33,7 +33,7 @@
                         </h3>
                     </a>
                     <p class="post-meta">Posted by
-                        <a href="#">{!! $article->author !!}</a>
+                        <a href="{{route('profile.show',['email'=>$article->author_email])}}">{!! $article->author !!}</a>
                        {!! $article->created_at->format('d.m.Y H:i') !!}
                         </p>
                 </div>
