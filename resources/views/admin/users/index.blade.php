@@ -24,13 +24,23 @@
                     <td> @if ($user->isBanned) <b>Заблокирован</b> @else Свободен @endif </td>
                     <td>{{$user->created_at->format('d.m.Y H:i')}}</td>
                     <td>
-                        @if (!$user->isAdmin && !$user->isBanned)
-                         <a href="{{route('user.ban',['id'=>$user->id])}}" onclick="return window.confirm('Вы уверены что хотите заблокировать пользователя  {{$user->name}} ?')">Заблокировать</a> ||
-                        @elseif (!$user->isAdmin && $user->isBanned)
-                            <a href="{{route('user.unban',['id'=>$user->id])}}" onclick="return window.confirm('Вы уверены что хотите разблокировать пользователя {{$user->name}} ?')">Разблокировать</a> ||
-                        @endif
 
-                        <a href="#">Перейти в профиль</a>
+                        <form id="profile-form" action="{{route('profile.show',['name'=>$user->name])}}"
+                              method="POST">
+                            @csrf
+                            @if (!$user->isAdmin && !$user->isBanned)
+                                <a href="{{route('user.ban',['id'=>$user->id])}}"
+                                   onclick="return window.confirm('Вы уверены что хотите заблокировать пользователя  {{$user->name}} ?')">Заблокировать</a>
+                                ||
+                            @elseif (!$user->isAdmin && $user->isBanned)
+                                <a href="{{route('user.unban',['id'=>$user->id])}}"
+                                   onclick="return window.confirm('Вы уверены что хотите разблокировать пользователя {{$user->name}} ?')">Разблокировать</a>
+                                ||
+                            @endif
+                            <input type="text" name="author_email" value="{{$user->email}}"
+                                   style="display: none">
+                            <input class="btn btn-link" type="submit" value="Перейти в профиль" style="cursor: pointer">
+                        </form>
                     </td>
                 </tr>
             @endforeach

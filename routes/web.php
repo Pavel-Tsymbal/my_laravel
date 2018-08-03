@@ -57,11 +57,22 @@ Route::group(['middleware' => 'auth'],function (){
         Route::get('/users', 'Admin\UserController@index')->name('users');
         Route::get('/users/ban/{id}', 'Admin\UserController@banUser')->name('user.ban');
         Route::get('/users/unban/{id}', 'Admin\UserController@unBanUser')->name('user.unban');
+
+        /* Comments */
+        Route::get('/comments','Admin\CommentsController@index')->name('comments');
+        Route::get('/comments/agree/{id}','Admin\CommentsController@commentAgree')->name('comment.agree');
+        Route::get('/comments/disagree/{id}','Admin\CommentsController@commentDisagree')->name('comment.disagree');
+        Route::get('/comments/delete/{id}','Admin\CommentsController@deleteComment')->name('comment.delete');
+
     });
 
     /* User*/
     Route::get('/profile', 'UserController@profile')->name('profile');
     Route::post('/profile', 'userController@update_avatar')->name('profile.updateAvatar');
-    Route::get('/user/{email}/profile', 'UserController@showUserProfile')->name('profile.show');
+    Route::post('/{name}/profile', 'UserController@showUserProfile')->name('profile.show');
+
+    /* Comments */
+    Route::post('/comments/add','CommentsController@commentAdd')->name('comment.add');
+
 });
 

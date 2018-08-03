@@ -25,17 +25,19 @@ class UserController extends Controller
             $user = Auth::user();
             $user->avatar = $fileName;
             $user->save();
-
         }
 
-        return view('profile',['user'=> Auth::user()]);
+        return redirect(route('profile'));
     }
 
-    public function showUserProfile(string $email){
-        $user = User::where('email',$email)->first();
-        if(!$user){
-            return back()->with('error','Пользователь не найден!');
+    public function showUserProfile(Request $request){
+        if($request->has('author_email')) {
+            $email = $request->input('author_email');
+            $user = User::where('email',$email)->first();
+            if(!$user){
+                return back()->with('error','Пользователь не найден!');
+            }
+            return view('users.profile',['user'=>$user]);
         }
-        return view('users.profile',['user'=>$user]);
     }
 }

@@ -52,7 +52,8 @@
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            <img src="/uploads/avatars/{{Auth::user()->avatar}}" style="width: 32px; height: 32px; border-radius: 50%;">
+                            <img src="/uploads/avatars/{{Auth::user()->avatar}}"
+                             style="width: 32px; height: 32px; border-radius: 50%;">
                             {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
 
@@ -132,6 +133,9 @@
 
 <!-- Custom scripts for this template -->
 <script src="/blog/js/clean-blog.min.js"></script>
+<script src="https://cdn.rawgit.com/alertifyjs/alertify.js/v1.0.10/dist/js/alertify.js"></script>
+@yield('js')
+@include('inc.messages')
 
 </body>
 

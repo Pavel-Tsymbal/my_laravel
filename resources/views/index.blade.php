@@ -32,10 +32,15 @@
                             {!! $article->short_text !!}
                         </h3>
                     </a>
-                    <p class="post-meta">Posted by
-                        <a href="{{route('profile.show',['email'=>$article->author_email])}}">{!! $article->author !!}</a>
-                       {!! $article->created_at->format('d.m.Y H:i') !!}
+                    <form id="profile-form" action="{{route('profile.show',['name'=>$article->author])}}" method="POST">
+                        @csrf
+                        <input type="text" name="author_email" value="{{$article->author_email}}" style="display: none">
+                        <p class="post-meta">Posted by  <input class="btn btn-link" type="submit" value="{{$article->author}}">
+                            {!! $article->created_at->format('d.m.Y H:i') !!}
                         </p>
+                    </form>
+
+
                 </div>
                 @endforeach
                 <hr>

@@ -32,9 +32,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{route('index')}}">Blog</a>
             </li>
-            {{--<li class="nav-item">--}}
-                {{--<a class="nav-link" href="#">Profile</a>--}}
-            {{--</li>--}}
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('profile')}}">Profile</a>
+            </li>
             {{--<li class="nav-item">--}}
                 {{--<a class="nav-link" href="#">Help</a>--}}
             {{--</li>--}}
@@ -62,7 +62,7 @@
                     <a class="nav-link" href="{{route('users')}}">Пользователи</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Комментарии</a>
+                    <a class="nav-link" href="{{route('comments')}}">Комментарии</a>
                 </li>
             </ul>
 
